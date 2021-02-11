@@ -37,27 +37,7 @@
 		<p class="mt-5 mb-3 text-muted">&copy; 2017-2020</p>
 
 	</form:form>
-
-	<!-- 
-	<form class="form-signin">
-
-		
-		<label for="dni" class="sr-only">DNI</label>
-		<input	type="text" id="dni" class="form-control" placeholder="Ingrese su numero de DNI" required autofocus>
-			
-		<label for="legajo" class="sr-only">Legajo</label>
-		<input type="text" id="legajo" class="form-control"	placeholder="Ingrese su legajo" required>
-		
-		<div class="checkbox mb-3">
-			<label> <input type="checkbox" value="remember-me">
-				Remember me
-			</label>
-		</div>
-		
-	</form>
-
- -->
-
+	
 	<script
 		src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js"
 		integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi"

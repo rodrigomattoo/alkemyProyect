@@ -15,20 +15,20 @@ import com.ar.alkemy.dao.ProfessorDao;
 import com.ar.alkemy.entity.Professor;
 
 @Controller
-public class Controlador {
+public class ProfessorController {
 
 	@Autowired
 	private ProfessorDao professorDao;
 	
-	@RequestMapping("/lista")	
-	public String listaProfesores(Model modelo) {
+	@RequestMapping("/professorsList")	
+	public String professorsList(Model modelo) {
 		
 		List<Professor> professors = professorDao.getProfessors();
 		
 		
 		modelo.addAttribute("professors", professors);
 		
-		return "lista-profesores";
+		return "professorsList";
 		
 	}
 	
@@ -52,7 +52,7 @@ public class Controlador {
 		
 		professorDao.insertProfessor(professor);
 		
-		return "redirect:/lista";
+		return "redirect:/professorsList";
 		
 	}
 	
