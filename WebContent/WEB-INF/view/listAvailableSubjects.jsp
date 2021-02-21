@@ -20,7 +20,7 @@
 					<th scope="col">Nombre</th>
 					<th scope="col">Dia</th>
 					<th scope="col">Horario</th>
-					<th scope="col">Cupo Máximo</th>
+					<th scope="col">Cupos Disponibles</th>
 					<th scope="col">Profesor</th>
 					<th scope="col">Acciones</th>
 				</tr>

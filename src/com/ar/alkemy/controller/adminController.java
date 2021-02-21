@@ -8,7 +8,7 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,6 +20,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.ar.alkemy.entity.Professor;
 import com.ar.alkemy.entity.Subject;
 import com.ar.alkemy.service.AdminService;
+
+import net.bytebuddy.implementation.bind.MethodDelegationBinder.BindingResolver;
 
 @Controller
 public class adminController {
@@ -68,6 +70,7 @@ public class adminController {
 			adminService.saveProfessor(professor);
 			return "redirect:/professorsList";
 		}
+	
 	}
 
 	@RequestMapping("/updateProfessorForm/{id}")
@@ -148,6 +151,7 @@ public class adminController {
 			Professor professor = adminService.getProfessorById(subject.getProfessorId());
 			subject.setProfessor(professor);
 			subject.setActive(1);
+			subject.setAvailability(subject.getCapacity());
 			adminService.insertSubject(subject);
 			request.getSession().removeAttribute("ERROR");
 			return "redirect:/subjectsList";

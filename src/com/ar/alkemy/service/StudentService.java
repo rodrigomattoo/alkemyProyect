@@ -17,8 +17,9 @@ public interface StudentService {
 	public Subject getSubjectById(Integer id);
 	public Integer getIdFromSession(HttpServletRequest request);
 	public User getUserById(Integer id);
-	public void register(Inscription inscription);
+	public Integer register(Inscription inscription);
 	public Boolean scheduleCheck(Subject subject, Integer id);
 	public String getDataFromSession(HttpServletRequest request);
 	public List<InscriptionCount> getAvailbility();
+	public Object getCountInscription(Inscription inscription);
 }

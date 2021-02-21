@@ -14,6 +14,7 @@ public interface StudentDao {
 	public User getUserById(Integer id);
 	public void register(Inscription inscription);
 	public List<Inscription> getInscriptionsFromStudentId(Integer id);
-	public List<InscriptionCount> getInscriptionsCount();
-
+	public Object getInscriptionsCount(Inscription inscription);
+	public void updateSubject(Subject subject);
+	public void updateAvailabilitySubject(Integer id, Integer availability);
 }

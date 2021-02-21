@@ -32,10 +32,11 @@ public class StudentDAOImp implements StudentDao {
 	}
 
 	@Override
-	public List<InscriptionCount> getInscriptionsCount() {
+	public Object getInscriptionsCount(Inscription inscription) {
 		Session miSession = sessionFactory.getCurrentSession();
-		Query query = miSession.createQuery("SELECT i.subjectId, COUNT(i) FROM Inscription i GROUP BY i.subjectId");
-		List<InscriptionCount> result = query.getResultList();
+		Integer id = inscription.getSubject().getId();
+		Query query = miSession.createQuery("SELECT COUNT(i) FROM Inscription i WHERE subject_id = " + id);
+		Object result = query.getSingleResult();
 		return result;
 	}
 
@@ -65,5 +66,17 @@ public class StudentDAOImp implements StudentDao {
 		Query query = miSession.createQuery("SELECT i FROM Inscription i WHERE user_id = " + id);
 		List<Inscription> list = query.getResultList();
 		return list;
+	}
+
+	@Override
+	public void updateSubject(Subject subject) {
+		Session miSession = sessionFactory.getCurrentSession();
+		miSession.update(subject);
+	}
+
+	@Override
+	public void updateAvailabilitySubject(Integer id, Integer availability) {
+		Session miSession = sessionFactory.getCurrentSession();
+		int query = miSession.createQuery("UPDATE Subject s SET availability =" + availability + "WHERE id =" + id).executeUpdate();
 	}
 }

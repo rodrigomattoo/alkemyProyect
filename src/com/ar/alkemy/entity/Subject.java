@@ -23,7 +23,7 @@ public class Subject {
 	private String description;
 	@Column
 	private Integer active;
-	
+	@Column
 	private Integer availability;
 	@ManyToOne
 	private Professor professor;

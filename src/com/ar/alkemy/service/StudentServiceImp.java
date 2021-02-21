@@ -37,15 +37,6 @@ public class StudentServiceImp implements StudentService {
 	@Override
 	public List<Subject> getListAvailableSubjects() {
 		List<Subject> list = studentDao.getListAvailableSubjects();
-		/*List<InscriptionCount> listCount = studentDao.getInscriptionsCount();
-		for (Subject subject : list) {
-			for (InscriptionCount inscriptionCount : listCount) {
-				if(inscriptionCount.getSubjectId()==subject.getId()){
-					Integer availability = subject.getCapacity()-inscriptionCount.getIncriptions();
-					subject.setAvailability(availability);
-				}
-			}
-		}*/
 		return list;
 	}
 
@@ -68,8 +59,15 @@ public class StudentServiceImp implements StudentService {
 	}
 
 	@Override
-	public void register(Inscription inscription) {
+	public Integer register(Inscription inscription) {
 		studentDao.register(inscription);
+		Object obj = this.studentDao.getInscriptionsCount(inscription);
+		Integer inscriptions = Integer.parseInt(obj.toString());
+		Integer capacity = inscription.getSubject().getCapacity();
+		Integer availability = capacity - inscriptions;
+		inscription.getSubject().setAvailability(availability);
+		studentDao.updateAvailabilitySubject(inscription.getSubject().getId(), availability);
+		return availability;
 	}
 
 	@Override
@@ -98,5 +96,11 @@ public class StudentServiceImp implements StudentService {
 	public List<InscriptionCount> getAvailbility() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public Object getCountInscription(Inscription inscription) {
+		Object count = studentDao.getInscriptionsCount(inscription);
+		return count;
 	}
 }

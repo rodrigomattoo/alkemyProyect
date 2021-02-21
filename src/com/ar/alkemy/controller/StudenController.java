@@ -59,7 +59,6 @@ public class StudenController {
 		Integer id = studentService.getIdFromSession(request);
 		User user = studentService.getUserById(id);
 		Boolean check = studentService.scheduleCheck(subject, id);
-		String view = null;
 		if(check) {
 			String data = "Ya se encuentra inscripto en una materia en el mismo dia y horario.";
 			request.getSession().setAttribute("DATA", data);
@@ -70,10 +69,9 @@ public class StudenController {
 			inscription.setUser(user);
 			studentService.register(inscription);
 			String data = "Se ha Inscripto con exito.";
-			//request.getSession().removeAttribute("ERROR");
+			request.getSession().removeAttribute("ERROR");
 			request.getSession().setAttribute("DATA", data);
 			return "redirect:/listAvailableSubjects";			
 		}
-		
 	}
 }
