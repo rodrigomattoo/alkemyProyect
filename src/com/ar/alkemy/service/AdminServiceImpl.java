@@ -44,7 +44,7 @@ public class AdminServiceImpl implements AdminService {
 	@Override
 	public Boolean checkRol(String rol) {
 		Boolean result = false;
-		if (!rol.equals("admin") || rol.equals(null))
+		if (!rol.equals("admin") || rol.trim().isEmpty())
 			result = true;
 		return result;
 	}

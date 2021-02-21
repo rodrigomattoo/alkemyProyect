@@ -21,7 +21,7 @@ import com.ar.alkemy.entity.User;
 import com.ar.alkemy.service.StudentService;
 
 @Controller
-public class StudenController {
+public class StudentController {
 
 	@Autowired
 	StudentService studentService;

@@ -12,7 +12,6 @@ import com.ar.alkemy.dao.StudentDao;
 import com.ar.alkemy.entity.Inscription;
 import com.ar.alkemy.entity.Subject;
 import com.ar.alkemy.entity.User;
-import com.ar.alkemy.entity.InscriptionCount;
 
 @Service
 public class StudentServiceImp implements StudentService {
@@ -91,13 +90,7 @@ public class StudentServiceImp implements StudentService {
 		String error = (String) request.getSession().getAttribute("DATA");
 		return error;
 	}
-
-	@Override
-	public List<InscriptionCount> getAvailbility() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
+	
 	@Override
 	public Object getCountInscription(Inscription inscription) {
 		Object count = studentDao.getInscriptionsCount(inscription);

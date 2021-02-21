@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.ar.alkemy.entity.Professor;
 import com.ar.alkemy.entity.Subject;
+import com.ar.alkemy.entity.User;
 import com.ar.alkemy.service.AdminService;
 
 import net.bytebuddy.implementation.bind.MethodDelegationBinder.BindingResolver;
@@ -37,6 +38,7 @@ public class adminController {
 		}
 		List<Professor> professor = adminService.getProfessorsList();
 		model.addAttribute("professors", professor);
+		model.addAttribute("mnjs", rol);
 		return "professorsList";
 	}
 
@@ -70,12 +72,10 @@ public class adminController {
 			adminService.saveProfessor(professor);
 			return "redirect:/professorsList";
 		}
-	
 	}
 
 	@RequestMapping("/updateProfessorForm/{id}")
-	public String updateProfessorForm(@PathVariable Integer id, HttpServletRequest request,
-			Model model) {
+	public String updateProfessorForm(@PathVariable Integer id, HttpServletRequest request, Model model) {
 		String rol = adminService.getRolFromSession(request);
 		if (adminService.checkRol(rol)) {
 			return "redirect:/";
@@ -112,7 +112,6 @@ public class adminController {
 	}
 
 	// Subjects
-
 	@RequestMapping("/subjectsList")
 	public String subjectsList(Model modelo, HttpServletRequest request) {
 		String rol = adminService.getRolFromSession(request);

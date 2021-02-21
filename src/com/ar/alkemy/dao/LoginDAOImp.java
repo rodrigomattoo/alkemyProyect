@@ -9,7 +9,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.ar.alkemy.entity.User;
 
-
 @Repository
 @Transactional
 public class LoginDAOImp implements LoginDAO {
@@ -21,13 +20,8 @@ public class LoginDAOImp implements LoginDAO {
 	public User getUser(User user) {
 		
 		Session miSession = sessionFactory.getCurrentSession();
-		
-		User userRequest =	(User) miSession.createCriteria(User.class).add(Restrictions.eq("dni", user.getDni()))
+			User userRequest =	(User) miSession.createCriteria(User.class).add(Restrictions.eq("dni", user.getDni()))
 		.add(Restrictions.eq("file", user.getFile())).uniqueResult();
-		
 		return userRequest;
 	}
-	
-	
-
 }

@@ -30,6 +30,9 @@ public class LoginController {
 
 	@RequestMapping("/login")
 	public String loginProcess(@ModelAttribute("user") User user, HttpServletRequest request) {
+		if (user.equals(null)) {
+			return "redirect:/";
+		}		
 		User userRequest = loginService.getUser(user);
 		String view = null;
 		if (userRequest == null) {
@@ -38,12 +41,12 @@ public class LoginController {
 			view = "redirect:/";
 		} else {
 			request.getSession().setAttribute("ROL", userRequest.getUserType());
-
 			switch (userRequest.getUserType()) {
 			case "admin":
 				view = "redirect:/professorsList";
 				break;
 			case "student":
+				request.getSession().setAttribute("ROL", userRequest.getUserType());
 				request.getSession().setAttribute("ID", userRequest.getId());
 				view = "redirect:/listAvailableSubjects";
 				break;

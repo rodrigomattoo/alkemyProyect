@@ -8,10 +8,8 @@ public class Inscription {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-
 	@ManyToOne
 	private User user;
-
 	@ManyToOne
 	private Subject subject;
 
@@ -46,7 +44,4 @@ public class Inscription {
 	public void setSubject(Subject subject) {
 		this.subject = subject;
 	}
-	
-	
-
 }

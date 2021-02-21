@@ -13,7 +13,6 @@ import org.springframework.transaction.annotation.Transactional;
 import com.ar.alkemy.entity.Inscription;
 import com.ar.alkemy.entity.Subject;
 import com.ar.alkemy.entity.User;
-import com.ar.alkemy.entity.InscriptionCount;
 
 @Repository
 @Transactional

@@ -5,7 +5,4 @@ import com.ar.alkemy.entity.User;
 public interface LoginDAO {
 
 	public User getUser(User user);
-	
-	
-
 }

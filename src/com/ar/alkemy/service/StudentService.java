@@ -7,7 +7,6 @@ import javax.servlet.http.HttpServletRequest;
 import com.ar.alkemy.entity.Inscription;
 import com.ar.alkemy.entity.Subject;
 import com.ar.alkemy.entity.User;
-import com.ar.alkemy.entity.InscriptionCount;
 
 public interface StudentService {
 
@@ -20,6 +19,5 @@ public interface StudentService {
 	public Integer register(Inscription inscription);
 	public Boolean scheduleCheck(Subject subject, Integer id);
 	public String getDataFromSession(HttpServletRequest request);
-	public List<InscriptionCount> getAvailbility();
 	public Object getCountInscription(Inscription inscription);
 }

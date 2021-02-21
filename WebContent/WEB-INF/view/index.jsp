@@ -23,7 +23,7 @@
 		<form:input path="dni" class="form-control"
 			placeholder="Ingrese su numero de DNI" />
 		<form:label path="file" class="sr-only" />
-		<form:input path="file" id="file" class="form-control"
+		<form:password path="file" id="file" class="form-control"
 			placeholder="Ingrese su legajo" />
 		<div>
 			<button class="btn btn-lg btn-primary btn-block mt-3" type="submit">Ingresar</button>

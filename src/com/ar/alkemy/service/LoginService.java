@@ -9,5 +9,4 @@ public interface LoginService {
 	public Boolean checkError(HttpServletRequest request);
 	public String getErrorFromSession(HttpServletRequest request);
 	public User getUser(User user);
-
 }
