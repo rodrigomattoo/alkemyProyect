@@ -5,6 +5,8 @@ import javax.persistence.*;
 @Entity
 public class Subject {
 
+	private Integer professorId;
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column
@@ -17,17 +19,18 @@ public class Subject {
 	private String schedule;
 	@Column
 	private Integer capacity;
-	
 	@Column
 	private String description;
+	@Column
+	private Integer active;
 	
-	@Column(name = "professor_id")
-	private Integer professorId;
-	
+	private Integer availability;
+	@ManyToOne
+	private Professor professor;
+
 	public Subject() {
 	}
 
-	
 	public Subject(String name, String day, String schedule, Integer capacity, String description,
 			Integer professorId) {
 		this.name = name;
@@ -37,8 +40,6 @@ public class Subject {
 		this.description = description;
 		this.professorId = professorId;
 	}
-
-
 
 	public Integer getId() {
 		return id;
@@ -80,12 +81,12 @@ public class Subject {
 		this.capacity = capacity;
 	}
 
-	public Integer getProfessorId() {
-		return professorId;
+	public Professor getProfessor() {
+		return professor;
 	}
 
-	public void setProfessorId(Integer professorId) {
-		this.professorId = professorId;
+	public void setProfessor(Professor professor) {
+		this.professor = professor;
 	}
 
 	public String getDescription() {
@@ -96,11 +97,28 @@ public class Subject {
 		this.description = description;
 	}
 
-	
-	
-	
-	
-	
-	
+	public Integer getProfessorId() {
+		return professorId;
+	}
 
+	public void setProfessorId(Integer professorId) {
+		this.professorId = professorId;
+	}
+
+	public Integer getActive() {
+		return active;
+	}
+
+	public void setActive(Integer active) {
+		this.active = active;
+	}
+
+	public Integer getAvailability() {
+		return availability;
+	}
+
+	public void setAvailability(Integer availability) {
+		this.availability = availability;
+	}
+	
 }

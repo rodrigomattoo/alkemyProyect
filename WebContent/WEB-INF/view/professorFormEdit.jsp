@@ -2,7 +2,8 @@
 <!DOCTYPE html>
 <html>
 <%@ include file='head.jsp'%>
-<title>Formulario Profesor</title>
+<title>Insert title here</title>
+</head>
 <body>
 	<nav class="navbar navbar-dark bg-dark">
 		<div class="container-fluid">
@@ -13,10 +14,11 @@
 		</div>
 	</nav>
 	<div class="container mt-5">
-		<h1>Carga de profesores</h1>
-		<form:form action="insertProfessor" modelAttribute="professor"
+		<h1>Edicion de profesores</h1>
+		<form:form action="updateProfessor" modelAttribute="professor"
 			method="POST">
 			<form:hidden path="id" />
+			<form:hidden path="active" />
 			<div class="mb-3">
 				<form:label path="name" class="form-label">Nombre</form:label>
 				<form:input path="name" class="form-control" />
@@ -30,7 +32,7 @@
 				<form:input path="dni" class="form-control" />
 			</div>
 			<div class="mb-3">
-				<input type="submit" value="Insertar" class="btn btn-primary">
+				<input type="submit" value="Guardar" class="btn btn-primary">
 			</div>
 		</form:form>
 		<c:if test="${ERROR == 'Formulario invalido.'}">

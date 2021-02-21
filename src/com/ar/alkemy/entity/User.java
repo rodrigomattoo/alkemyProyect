@@ -17,12 +17,12 @@ public class User {
 	private String file;
 
 	@Column(name = "user_type")
-	private Integer userType;
+	private String userType;
 
 	public User() {
 	}
 
-	public User(String dni, String file, Integer userType) {
+	public User(String dni, String file, String userType) {
 		this.dni = dni;
 		this.file = file;
 		this.userType = userType;
@@ -52,11 +52,11 @@ public class User {
 		this.file = file;
 	}
 
-	public Integer getUserType() {
+	public String getUserType() {
 		return userType;
 	}
 
-	public void setUserType(Integer userType) {
+	public void setUserType(String userType) {
 		this.userType = userType;
 	}
 

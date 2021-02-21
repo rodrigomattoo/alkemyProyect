@@ -1,5 +1,7 @@
 package com.ar.alkemy.entity;
 
+import java.util.List;
+
 import javax.persistence.*;
 
 @Entity
@@ -8,25 +10,21 @@ public class Professor {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column//(name = "id")
+	@Column(insertable = false, nullable = true)
 	private Integer id;
-
-	@Column//(name = "name")
+	@Column
 	private String name;
-
 	@Column(name = "last_name")
 	private String lastName;
-	
-	@Column//(name = "dni")
+	@Column
 	private String dni;
-
-	@Column//(name = "active")
+	@Column
 	private Integer active;
-
+	
+	private String fullName;
+			
 	public Professor() {
 	}
-
-	
 
 	public Professor(String name, String lastName, String dni, Integer active) {
 		this.name = name;
@@ -34,8 +32,6 @@ public class Professor {
 		this.dni = dni;
 		this.active = active;
 	}
-
-
 
 	public Integer getId() {
 		return id;
@@ -77,10 +73,7 @@ public class Professor {
 		this.dni = dni;
 	}
 
-	@Override
-	public String toString() {
-		return "Professor [id=" + id + ", name=" + name + ", lastName=" + lastName + ", dni=" + dni + ", active="
-				+ active + "]";
+	public String getFullName() {
+		return this.name +" "+ this.lastName;
 	}
-
 }

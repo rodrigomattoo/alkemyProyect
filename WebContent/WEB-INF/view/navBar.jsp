@@ -1,3 +1,5 @@
+
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 	<div class="container-fluid">
 		<a class="navbar-brand" href="#">Alkemy</a>
@@ -17,7 +19,7 @@
 			</ul>
 
 			<div class="d-flex">
-				<button class="btn btn-outline-success" type="submit">Search</button>
+				<a class="btn btn-outline-success" href="logOut">Salir</a>
 			</div>
 
 		</div>
