@@ -2,8 +2,11 @@
 CONFIGURACION DEL PROYECTO
 
 1)Crear la base de datos. Ejecutar el archivo "ProyectoAlkemy\db-scripts\proyecto-alkemy-ddl.sql".
+
 2)Cambiar la contraseña y usuario de acceder a la base de datos en el archivoProyectoAlkemy\WebContent\WEB-INF\spring-crud-servlet.xml.
+
 3)Correr el proyecto para crear las tablas.
+
 4)Ejecutar el archivo "\ProyectoAlkemy\db-scripts\proyecto-alkemy-inserts.sql" para realizar los inserts.
 
 USUARIOS Y CONTRASEÑAS
